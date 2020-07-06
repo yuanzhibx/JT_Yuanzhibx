@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EasyUI-3-菜单按钮</title>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/icon.css" />
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/default/easyui.css" />
+<script type="text/javascript">
+	
+	$(function(){
+		
+		//展现树形结构
+		$("#easyui-tree").tree({
+			url:"tree.json",		//加载远程JSON数据
+			method:"get",			//请求方式  POST
+			animate:true,			//表示显示折叠端口
+			checkbox:true,			//表述复选框
+			lines:true,				//表示显示连接线
+			dnd:true,				//是否拖拽
+			onClick:function(node){	//添加点击事件
+				
+				//当点击选项卡时进行页面跳转并且添加选项卡,如果选项卡已经打开则直接选中
+				var tab = $("#main").tabs("getTab",node.text);
+				if(tab){
+					//如果不为空,则直接选中面板
+					$("#main").tabs("select",node.text);
+					
+				}else{
+					//如果没有选中则新增一个面板
+					$('#main').tabs('add',{    
+					    title:node.text,    
+					    //content:'Tab Body',
+					    href:"easyui-12-super"+(node.id%2==0?1:2)+".html",		//重远程加载页面
+					    closable:true,    
+					    tools:[{    
+					        iconCls:'icon-mini-refresh',    
+					        handler:function(){    
+					            alert('refresh');    
+					        }    
+					    }]    
+					});  	
+				}
+			}
+		});	
+		
+		
+		//定义通讯录
+		$("#btn_1").click(function(){
+
+			//定义弹出窗口
+			$("#txl").window({
+				title:"通讯录",
+			    width:200,    
+			    height:400,    
+			    modal:true   
+			});  
+			
+			//加载同学录树形结构
+			$("#txlTree").tree({
+				url:"friend.json",		//加载远程JSON数据
+				method:"get",			//请求方式  POST
+				animate:true,			//表示显示折叠端口
+				checkbox:true,			//表述复选框
+				lines:true,				//表示显示连接线
+				dnd:true,				//是否拖拽
+				onClick:function(node){	//添加点击事件
+					alert(node.text);
+				}
+			});
+			
+			
+		});
+		
+		//退出系统
+		$("#btn_2").click(function(){
+			$.messager.confirm('确认','你确定要退出系统吗？',function(r){    
+			    if (r){    
+			        alert('系统已经退出成功');    
+			    }    
+			});  
+		})
+	})
+
+
+</script>
+</head>
+	<body class="easyui-layout">   
+    <div data-options="region:'north',title:'标题',split:true" style="height:150px;">
+    	<!--定义logo  -->
+    	<div id="lol">
+    		<img alt="英雄联盟" src="/easy-ui/images/lol.jpg" height="150px" width="150px">
+    		
+    		<!--定义退出按钮  -->
+    		<div id="logout" style="float: right">
+    			<a id="btn_1" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help'">通讯录</a> 
+    			<a id="btn_2" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">退出</a>  
+    		</div>
+    	</div>
+    	
+    	
+    </div>   
+    <div data-options="region:'south',title:'底部 ',split:true" style="height:100px;"></div>   
+    <div data-options="region:'east',iconCls:'icon-reload',title:'西侧',split:true" style="width:150px;"></div>   
+    <div data-options="region:'west',title:'东侧',split:true" style="width:200px;">
+    	<!--在左侧添加面板  -->
+    	<div id="leftAccordion" class="easyui-accordion">   
+		    <div title="课程管理" data-options="iconCls:'icon-save',selected:true" style="overflow:auto;padding:10px;">   
+				
+				<!--左侧菜单添加树形结构  -->
+				<ul id="easyui-tree"></ul>
+		    </div> 
+		    <div title="院校管理" data-options="iconCls:'icon-reload'" style="padding:10px;">   
+		       	院校信息 
+		    </div>   
+		    <div title="公关管理">   
+		       	公关部你懂得
+		    </div>   
+		</div>  
+    </div>   
+    <div data-options="region:'center',title:'中心 '" style="padding:5px;background:#eee;">
+    	<!--在中部定义选项卡面板  -->
+    	<div id="main" class="easyui-tabs" data-options="fit:true">   
+		    <div title="首页" style="padding:20px;">   
+		        	<img alt="电竞王国" src="/easy-ui/images/timg.jpg">
+		    </div>   
+		</div>  
+    </div>
+    
+    <!--定义通讯录弹出窗口  -->
+    <div id="txl">
+    	<ul id="txlTree"></ul>
+    </div>   
+</body>
+</html>

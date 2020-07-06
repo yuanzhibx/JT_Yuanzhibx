@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EasyUI-3-菜单按钮</title>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/icon.css" />
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/default/easyui.css" />
+<script type="text/javascript">
+	
+	$(function(){
+		//菜单是默认影藏的，使其进行展现
+		$('#mm').menu('show', { 
+			left: 200, 			//左侧位置
+			top: 100 			//顶部位置
+			});
+	})
+	
+	function menuHandler(item){
+		alert("添加点击事件做想做的事情,其中item表示点击的菜单项");
+		
+		alert(item.text); //输出点击项的文本内容
+	}
+</script>
+</head>
+<body>
+	<h1>Easy-UI的菜单项</h1>
+	<!--引入class属性easyui-menu 调用Easy_UId的Css样式进行展现  宽度定义为200px  -->
+	<div id="mm" class="easyui-menu" style="width: 200px;" data-options="onClick:menuHandler">
+		
+		<!--定义div标签 定义第一个菜单元素新建  -->
+		<div>新建</div>
+		
+		<!--定义第二个菜单元素 并且定义了二级菜单  -->
+		<div>
+			<!--二级菜单的名称  -->
+			<span>打开</span>
+			<!--二级菜单的具体内容 定义宽度为150px  -->
+			<div style="width: 150px;">
+				<div>
+					<b>Word</b>
+				</div>
+
+				<div>Excel</div>
+
+				<div>PowerPoint</div>
+				<div>自定义选项</div>
+			</div>
+		</div>
+		
+		<!--定义第三个菜单 并且为其左侧添加图标 icon-save为可变的随意更换  -->
+		<div data-options="iconCls:'icon-save'")">保存</div>
+		
+		<!--定义菜单分离器  -->
+		<div class="menu-sep"></div>
+		
+		<!--定义第四个菜单  -->
+		<div>
+			<span>自定义</span>
+			<div style="width:150px;">
+				<div data-options="name:'返回',iconCls:'icon-blank'">返回</div>
+				<div data-options="name:'新增',iconCls:'icon-add'">新增</div>
+				<div data-options="iconCls:'icon-edit'">编辑</div>
+				<div data-options="iconCls:'icon-clear'">清空</div>
+				<div data-options="iconCls:'icon-remove'">移动</div>
+			</div>
+		</div>
+		
+		<!--定义第五个菜单 退出  -->
+		<div>退出</div>
+	</div>
+</body>
+</html>

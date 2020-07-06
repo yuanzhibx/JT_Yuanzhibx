@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EasyUI-3-菜单按钮</title>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/icon.css" />
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/default/easyui.css" />
+<script type="text/javascript">
+	
+	$(function(){
+		
+		//为按钮添加点击事件
+		$("#btn1").bind("click",function(){
+			
+			alert("点击事件添加成功");
+		});
+	})
+	
+	
+</script>
+</head>
+<body>
+	<h1>Easy-UI按钮</h1>
+	
+	<!--该页面中主要展现 不同的按钮格式  -->
+	<a id="btn1" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-back'">返回</a>
+	<a id="btn2" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">新增</a>
+	<a id="btn3" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">编辑</a>
+	<a id="btn4" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-clear'">清空</a>
+	<a id="btn5" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">移除</a>
+	<br>
+	<a id="btn6" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+	<a id="btn7" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut'">剪切</a>
+	<a id="btn8" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">ok</a>
+	<a id="btn9" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'">no</a>
+	<a id="btn10" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">取消</a>
+	<br>
+	<a id="btn11" href="#" class="easyui-linkbutton" data-options="iconCls:'reload'">重载</a>
+	<a id="btn12" href="#" class="easyui-linkbutton" data-options="iconCls:'search'">查询</a>
+	<a id="btn13" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-print'">打印</a>
+	<a id="btn14" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help'">帮助</a>
+	<a id="btn15" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">取消</a>
+	<br>
+
+
+</body>
+</html>

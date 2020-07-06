@@ -1,0 +1,12 @@
+{
+	"total":2000,
+	"rows":[
+		{"code":"A","name":"果汁","price":"20"},
+		{"code":"B","name":"汉堡","price":"30"},
+		{"code":"C","name":"鸡柳","price":"40"},
+		{"code":"D","name":"可乐","price":"50"},
+		{"code":"E","name":"薯条","price":"10"},
+		{"code":"F","name":"麦旋风","price":"20"},
+		{"code":"G","name":"套餐","price":"100"}
+	]
+}

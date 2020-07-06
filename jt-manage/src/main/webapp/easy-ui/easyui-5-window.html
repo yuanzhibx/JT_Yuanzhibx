@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EasyUI-3-菜单按钮</title>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/js/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/icon.css" />
+<link rel="stylesheet" type="text/css"
+	href="/js/jquery-easyui-1.4.1/themes/default/easyui.css" />
+<script type="text/javascript">
+	$(function(){
+		
+		$("#btn1").bind("click",function(){
+			
+			$("#win1").window({
+				title:"弹出框",
+				width:400,
+				height:400,
+				modal:true   //这是一个模式窗口，只能点击弹出框，不允许点击别处
+			})
+		})
+		
+		$("#btn3").click(function(){
+			alert("关闭");
+			$("#win2").window("close");
+		});
+		
+		/*定义退出消息框  */
+		$("#btn4").click(function(){
+			$.messager.confirm('退出','你确定要退出吗',function(r){ 
+					if (r){ 
+						alert("确认退出");
+					} 
+				});
+		})
+		
+		/*定义消息提示框  */
+		$.messager.show({  	
+			  title:'My Title',  	
+			  msg:'郑哥你都胖成一个球了，圆的',  	
+			  timeout:5000,
+			  height:200,
+			  width:300,
+			  showType:'slide'  
+			}); 
+	})
+</script>
+</head>
+<body>
+	<h1>Easy-弹出窗口</h1>
+	
+	<!--主要展现弹出框  -->
+	<a id="btn1" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	<div id="win1"></div>
+	
+	<!--定义弹出窗口  -->
+	<div id="win2" class="easyui-window" title="My Window" style="width:600px;height:400px" data-options="iconCls:'icon-save',modal:true"> 
+		我是一个窗口
+		<a id="btn3" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-back'">关闭</a>
+	</div>
+	<div style="float: right">
+		<a id="btn4" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">退出系统</a>
+	</div>
+
+</body>
+</html>
