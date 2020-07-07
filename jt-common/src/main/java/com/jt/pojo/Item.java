@@ -9,7 +9,8 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * @author yuanzhibx
+ * @author Yuanzhibx
+ * @Date 2020-07-06
  */
 @JsonIgnoreProperties(ignoreUnknown = true) //表示JSON转化时忽略未知属性
 @TableName("tb_item")
@@ -34,7 +35,7 @@ public class Item extends BasePojo {
     private String sellPoint;
 
     /**
-     * 商品价格 Long > dubbo
+     * 商品价格 Long > Double
      */
     private Long price;
 

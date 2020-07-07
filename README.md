@@ -5,8 +5,8 @@
 
 ---
 ## 项目结构
-- [jt-common](./jt-common): 
-- [jt-manage](./jt-manage): 
+- [jt-common](./jt-common): 工具 API
+- [jt-manage](./jt-manage): 业务系统
 
 ```
 ├─jt

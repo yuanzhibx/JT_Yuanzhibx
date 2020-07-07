@@ -18,21 +18,21 @@
 	$(function(){
 		$("#table3").datagrid({
 			/*定义工具栏  */
-			toolbar: [{  		
-				  iconCls: 'icon-edit',  		
-				  handler: function(){alert("点击工具栏")}  	
-				  },'-',{  		
-				  iconCls: 'icon-help',  		
-				  handler: function(){alert('帮助工具栏')}  	
+			toolbar: [{
+				  iconCls: 'icon-edit',
+				  handler: function(){alert("点击工具栏")}
+				  },'-',{
+				  iconCls: 'icon-help',
+				  handler: function(){alert('帮助工具栏')}
 				  },'-',{
 					  iconCls: 'icon-save',
 					  handler: function(){alert('保存工具栏')}
-				  }],  
+				  }],
 			columns:[[
 			{field:'itemIds',checkbox:true},
-			{field:'itemId',title:'商品Id',width:100}, 
-			{field:'itemName',title:'商品名称',width:100}, 
-			{field:'itemDesc',title:'商品描述',width:100,align:'right'} 
+			{field:'itemId',title:'商品Id',width:100},
+			{field:'itemName',title:'商品名称',width:100},
+			{field:'itemDesc',title:'商品描述',width:100,align:'right'}
 			]],
 			fitColumns:true,		  //自动适应
 			url:"datagrid_item.json", //请求数据的地址
@@ -50,53 +50,53 @@
 	<body>
 		<h1>Easy-表格数据1</h1>
 		<div>
-			<table  class="easyui-datagrid" style="width:400px;height:250px"> 
-				<thead> 
-					<tr> 
-						<th data-options="field:'code'">Code</th> 
-						<th data-options="field:'name'">Name</th> 
-						<th data-options="field:'price'">Price</th> 
-					</tr> 
-				</thead> 
-				<tbody> 
-					<tr> 
+			<table  class="easyui-datagrid" style="width:400px;height:250px">
+				<thead>
+					<tr>
+						<th data-options="field:'code'">Code</th>
+						<th data-options="field:'name'">Name</th>
+						<th data-options="field:'price'">Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
 						<td>001</td>
 						<td>name1</td>
-						<td>2323</td> 
-					</tr> 
-				
-					<tr> 
+						<td>2323</td>
+					</tr>
+
+					<tr>
 						<td>002</td>
 						<td>name2</td>
-						<td>4612</td> 
+						<td>4612</td>
 					</tr>
-					
-					<tr> 
+
+					<tr>
 						<td>003</td>
 						<td>name3</td>
-						<td>4612</td> 
-					</tr>  
-				</tbody> 
+						<td>4612</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 		<hr/>
 		<h1>通过数据请求创建表格</h1>
 		<div>
 			定义表格，并且通过url访问json数据， fitColumns:true表示自动适应，singleSelect:true 表示选中单个
-			<table class="easyui-datagrid" style="width:500px;height:300px" data-options="url:'datagrid_data.json',method:'get',fitColumns:true,singleSelect:true,pagination:true"> 
-				<thead> 
-					<tr> 
-						<th data-options="field:'code',width:100">Code</th> 
-						<th data-options="field:'name',width:100">Name</th> 
+			<table class="easyui-datagrid" style="width:500px;height:300px" data-options="url:'datagrid_data.json',method:'get',fitColumns:true,singleSelect:true,pagination:true">
+				<thead>
+					<tr>
+						<th data-options="field:'code',width:100">Code</th>
+						<th data-options="field:'name',width:100">Name</th>
 						<th data-options="field:'price',width:100,align:'right'">Price</th>
-					</tr> 
-				</thead> 
-			</table> 
+					</tr>
+				</thead>
+			</table>
 		</div>
 		<hr/>
 		<h1>通过js创建表格</h1>
 		<table id="table3" style="width:700px">
-			
+
 		</table>
 	</body>
 </html>
