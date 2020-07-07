@@ -19,7 +19,14 @@ import java.util.List;
 @Accessors(chain = true)
 public class EasyUITable {
 
+    /**
+     * 数据总数
+     */
     private Integer total;
+
+    /**
+     * 数据
+     */
     private List<Item> rows;
 
 }
