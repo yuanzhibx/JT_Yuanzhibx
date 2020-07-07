@@ -12,7 +12,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-
     <dependencies>
         <!--2.添加依赖 -->
         <dependency>
@@ -21,7 +20,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 
     <!--3.添加插件 -->
     <!--负责项目打包 更新 maven操作相关的配置 必须添加 -->
