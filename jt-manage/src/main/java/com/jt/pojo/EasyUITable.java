@@ -25,7 +25,7 @@ public class EasyUITable {
     private Integer total;
 
     /**
-     * 数据
+     * 数据总数
      */
     private List<Item> rows;
 
