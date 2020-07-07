@@ -60,7 +60,7 @@ var TT = KindEditorUtil = {		//相当于java中定义的工具类，里面提供
     findItemCatName : function(val,row){
     	var name;
     	$.ajax({
-    		type:"post",
+    		type:"get",
     		url:"/item/cat/queryItemName",
     		data:{itemCatId:val},
     		cache:true,    //缓存
