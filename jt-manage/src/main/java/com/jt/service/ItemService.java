@@ -1,6 +1,6 @@
 package com.jt.service;
 
-import com.jt.pojo.EasyUITable;
+import com.jt.vo.EasyUITable;
 
 /**
  * @author Yuanzhibx

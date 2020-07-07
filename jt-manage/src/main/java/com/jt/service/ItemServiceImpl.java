@@ -2,8 +2,8 @@ package com.jt.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.jt.pojo.EasyUITable;
-import com.jt.pojo.Item;
+import com.jt.vo.EasyUITable;
+import com.jt.vo.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +59,5 @@ public class ItemServiceImpl implements ItemService {
 //		List<Item> itemList = itemMapper.selectItemByPage(start, rows);
 //		return new EasyUITable(total, itemList);
 //	}
-
 
 }

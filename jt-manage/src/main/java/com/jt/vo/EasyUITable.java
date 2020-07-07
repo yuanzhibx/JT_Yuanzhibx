@@ -1,4 +1,4 @@
-package com.jt.pojo;
+package com.jt.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +25,7 @@ public class EasyUITable {
     private Integer total;
 
     /**
-     * 数据总数
+     * 每页数据总数
      */
     private List<Item> rows;
 
