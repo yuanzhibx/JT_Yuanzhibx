@@ -10,8 +10,9 @@
 
 ```
 ├─jt
-   ├─jt-common
-   └─jt-manage
+│  ├─db
+│  ├─jt-common
+│  └─jt-manage
 ```
 ---
 ## 项目技术
@@ -32,7 +33,7 @@
 ## 捐赠
 | Alipay | WeChatPay |
 | :----: | :----: |
-| <img width="120" height="120" src="./img/alipay.png"/> | <img width="120" height="120" src="./img/wechat.png"/> |
+| <img width="150" height="150" src="./img/alipay.png"/> | <img width="150" height="150" src="./img/wechat.png"/> |
 
 ---
 ## 联系
