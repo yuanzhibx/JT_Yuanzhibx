@@ -22,7 +22,8 @@ public class ItemCatController {
     private ItemCatService itemCatService;
 
     /**
-     * url: http://localhost:8091/item/cat/queryItemName?itemCatId=163
+     * 根据商品分类 id  查询  商品分类信息, 并返回商品分类名称
+     * url: /item/cat/queryItemName?itemCatId=163
      *
      * @param itemCatId 商品分类 id
      * @return 商品分类名称
@@ -34,22 +35,14 @@ public class ItemCatController {
     }
 
     /**
-     * 业务: 查询商品分类信息, 返回到 VO 对象
-     * URL: http://localhost:8091/item/cat/list
-     * 参数: 无
-     * 返回值结果: EasyUITree 对象
-     * JSON 格式: [{"id": "2", "text": "英雄联盟", "iconCls": "icon-save"}{"id": "3", "text": "吃鸡游戏", "iconCls": "icon-save"}]
-     */
-
-    /**
-     * 查询商品分类信息, 返回到 VO 对象
-     * url: http://localhost:8091/item/cat/list
+     * 根据商品父级 id 查询商品分类信息, 返回 VO 对象
+     * url: /item/cat/list
      *
+     * @param parentId 一级分类 id
      * @return EasyUITree 对象
      */
     @RequestMapping("/list")
     public List<EasyUITree> findItemCatByParentId(@RequestParam(value = "id", defaultValue = "0") Long parentId) {
-        //1. 查询一级商品分类信息
 //        Long parentId = id == null ? 0L : id;
         return itemCatService.findItemCatByParentId(parentId);
     }
