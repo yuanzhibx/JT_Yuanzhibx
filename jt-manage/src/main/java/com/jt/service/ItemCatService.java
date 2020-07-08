@@ -1,6 +1,9 @@
 package com.jt.service;
 
 import com.jt.pojo.ItemCat;
+import com.jt.vo.EasyUITree;
+
+import java.util.List;
 
 /**
  * @author Yuanzhibx
@@ -14,5 +17,7 @@ public interface ItemCatService {
      * @return 商品分类信息
      */
     ItemCat findItemCatById(Long itemCatId);
+
+    List<EasyUITree> findItemCatByParentId(Long parentId);
 
 }

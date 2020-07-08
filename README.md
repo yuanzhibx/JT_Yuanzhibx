@@ -31,7 +31,7 @@
 
 ---
 ## 捐赠
-| Alipay | WeChatPay |
+| AliPay | WeChatPay |
 | :----: | :----: |
 | <img width="150" height="150" src="./img/alipay.png"/> | <img width="150" height="150" src="./img/wechat.png"/> |
 
