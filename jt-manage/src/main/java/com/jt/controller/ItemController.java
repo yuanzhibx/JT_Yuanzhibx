@@ -1,6 +1,8 @@
 package com.jt.controller;
 
+import com.jt.pojo.Item;
 import com.jt.vo.EasyUITable;
+import com.jt.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +22,7 @@ public class ItemController {
 
 	/**
 	 * 展现商品列表数据, 以 EasyUI 表格数据呈现
-	 * url: http://localhost:8091/item/query?page=1&rows=20
+	 * url: /item/query?page=1&rows=20
 	 * @param page 当前页数
 	 * @param rows 当前页数据总数
 	 * @return 商品列表数据
@@ -28,6 +30,24 @@ public class ItemController {
 	@RequestMapping("/query")
 	public EasyUITable findItemByPage(Integer page, Integer rows) {
 		return itemService.findItemByPage(page, rows);
+	}
+
+	/**
+	 * 商品新增操作
+	 * url: /item/save
+	 * 参数: form 表单数据
+	 * 返回值结果: SysResult 对象
+	 */
+	@RequestMapping("/save")
+	public SysResult saveItem(Item item) {
+		try {
+			itemService.saveItem(item);
+			return SysResult.success();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return SysResult.fail();
+		}
+
 	}
 
 }
