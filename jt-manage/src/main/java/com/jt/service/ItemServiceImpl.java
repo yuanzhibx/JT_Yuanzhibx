@@ -59,6 +59,17 @@ public class ItemServiceImpl implements ItemService {
     }
 
     /**
+     * 商品更新操作
+     *
+     * @param item
+     */
+    @Override
+    public void updateItem(Item item) {
+        item.setUpdated(new Date());
+        itemMapper.updateById(item);
+    }
+
+    /**
      * 展现商品列表数据, 以 EasyUI 表格数据呈现
      * 分页 SQL : SELECT  FROM tb_item LIMIT 0, 20   (0-19, 共 20 条记录)
      * @param page 当前页数

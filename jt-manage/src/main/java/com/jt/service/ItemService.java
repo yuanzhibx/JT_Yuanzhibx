@@ -22,4 +22,10 @@ public interface ItemService {
      * @param item
      */
     void saveItem(Item item);
+
+    /**
+     * 商品更新操作
+     * @param item
+     */
+    void updateItem(Item item);
 }

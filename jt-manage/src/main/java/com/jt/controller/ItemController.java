@@ -34,13 +34,23 @@ public class ItemController {
 
 	/**
 	 * 商品新增操作
-	 * url: /item/save
-	 * 参数: form 表单数据
-	 * 返回值结果: SysResult 对象
+	 * @param item form 表单数据
+	 * @return SysResult 对象
 	 */
 	@RequestMapping("/save")
 	public SysResult saveItem(Item item) {
 		itemService.saveItem(item);
+		return SysResult.success();
+	}
+
+	/**
+	 * 商品修改操作
+	 * @param item form 表单数据
+	 * @return SysResult 对象
+	 */
+	@RequestMapping("/update")
+	public SysResult updateItem(Item item) {
+		itemService.updateItem(item);
 		return SysResult.success();
 	}
 
