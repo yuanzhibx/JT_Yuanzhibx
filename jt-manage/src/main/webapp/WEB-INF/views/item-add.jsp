@@ -52,7 +52,7 @@
 	        <tr class="params hide">
 	        	<td>商品规格:</td>
 	        	<td>
-	        		
+
 	        	</td>
 	        </tr>
 	    </table>
@@ -72,7 +72,7 @@
 			KindEditorUtil.changeItemParam(node, "itemAddForm");
 		}});
 	});
-	
+
 	function submitForm(){
 		//表单校验
 		if(!$('#itemAddForm').form('validate')){
@@ -82,7 +82,7 @@
 		//转化价格单位，将元转化为分
 		$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
 		itemAddEditor.sync();//将输入的内容同步到多行文本中
-		
+
 		var paramJson = [];
 		$("#itemAddForm .params li").each(function(i,e){
 			var trs = $(e).find("tr");
@@ -101,13 +101,23 @@
 			});
 		});
 		paramJson = JSON.stringify(paramJson);//将对象转化为json字符串
-		
+
 		$("#itemAddForm [name=itemParams]").val(paramJson);
-		
-		/*$.post/get(url,JSON,function(data){....})  
-			?id=1&title="天龙八部&key=value...."
-		*/
-		//alert($("#itemAddForm").serialize());
+
+		/*
+			Ajax POST 方式提交 $.post("url地址","提交参数信息","回调函数")
+			参数类型:
+				1.  {"key":"value","key2":"value2",......}  少量数据提交
+				2.	key=value&key2=value2......				基于字符串拼接
+			JS表单常用方法:
+					$("#itemAddForm").serialize() 将所有的form表单中的数据,采用字符串的形式自动拼接之后提交
+			关于回调函数业务说明
+				需求: 确定后端服务器调用是否正确!!!!
+				策略说明:
+					属性1: status==200 调用正确  status==201 调用失败
+					属性2: msg  提交服务器相关说明信息
+					属性3: data 服务器返回页面的业务数据  一般都是对象的JSON.
+		 */
 		$.post("/item/save",$("#itemAddForm").serialize(), function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','新增商品成功!');
@@ -116,7 +126,7 @@
 			}
 		});
 	}
-	
+
 	function clearForm(){
 		$('#itemAddForm').form('reset');
 		itemAddEditor.html('');
