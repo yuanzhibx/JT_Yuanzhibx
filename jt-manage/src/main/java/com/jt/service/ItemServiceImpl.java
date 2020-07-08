@@ -51,7 +51,7 @@ public class ItemServiceImpl implements ItemService {
      *
      * @param item
      */
-    @Transactional(rollbackFor = Exception.class)
+    @Transactional
     @Override
     public void saveItem(Item item) {
         item.setStatus(1).setCreated(new Date()).setUpdated(item.getCreated());

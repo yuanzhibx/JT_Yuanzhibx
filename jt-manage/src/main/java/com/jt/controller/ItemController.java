@@ -40,14 +40,8 @@ public class ItemController {
 	 */
 	@RequestMapping("/save")
 	public SysResult saveItem(Item item) {
-		try {
-			itemService.saveItem(item);
-			return SysResult.success();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return SysResult.fail();
-		}
-
+		itemService.saveItem(item);
+		return SysResult.success();
 	}
 
 }
