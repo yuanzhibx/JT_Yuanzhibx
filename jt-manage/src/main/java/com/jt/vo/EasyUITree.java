@@ -29,6 +29,6 @@ public class EasyUITree {
      * 状态
      * 打开: open  关闭: closed
      */
-    private String iconCls;
+    private String state;
 
 }

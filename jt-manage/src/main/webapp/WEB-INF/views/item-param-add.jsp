@@ -35,7 +35,7 @@
 		</ul>
 	</li>
 </div>
-<script style="text/javascript">
+<script>
 	$(function(){
 		KindEditorUtil.initItemCat({
 			fun:function(node){
