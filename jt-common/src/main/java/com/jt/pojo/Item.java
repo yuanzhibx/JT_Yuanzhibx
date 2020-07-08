@@ -1,4 +1,4 @@
-package com.jt.vo;
+package com.jt.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

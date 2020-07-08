@@ -3,7 +3,6 @@ package com.jt.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.jt.vo.BasePojo;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

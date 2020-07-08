@@ -1,5 +1,6 @@
 package com.jt.vo;
 
+import com.jt.pojo.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

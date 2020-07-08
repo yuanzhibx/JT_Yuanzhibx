@@ -1,4 +1,4 @@
-package com.jt.vo;
+package com.jt.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
