@@ -78,11 +78,17 @@ public class ItemServiceImpl implements ItemService {
      * 商品更新操作
      *
      * @param item
+     * @param itemDesc
      */
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(Item item, ItemDesc itemDesc) {
+        // 商品更新
         item.setUpdated(new Date());
         itemMapper.updateById(item);
+
+        // 商品详情更新
+        itemDesc.setItemId(item.getId()).setUpdated(item.getCreated());
+        itemDescMapper.updateById(itemDesc);
     }
 
     /**
@@ -94,7 +100,10 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItems(Long[] ids) {
         // 将数组转换为集合
         List<Long> list = Arrays.asList(ids);
+        // 商品删除
         itemMapper.deleteBatchIds(list);
+        //商品详情删除
+        itemDescMapper.deleteBatchIds(list);
     }
 
     /**

@@ -32,8 +32,9 @@ public interface ItemService {
      * 商品更新操作
      *
      * @param item
+     * @param itemDesc
      */
-    void updateItem(Item item);
+    void updateItem(Item item, ItemDesc itemDesc);
 
     /**
      * 商品删除操作
