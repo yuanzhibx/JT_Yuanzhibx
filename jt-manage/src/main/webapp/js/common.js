@@ -49,7 +49,7 @@ var TT = KindEditorUtil = {		//相当于java中定义的工具类，里面提供
     // 格式化商品的状态
     formatItemStatus: function formatStatus(val, row) {
         if (val == 1) {
-            return '正常';
+            return '<span style="color:green;">正常</span>';
         } else if (val == 2) {
             return '<span style="color:red;">下架</span>';
         } else {

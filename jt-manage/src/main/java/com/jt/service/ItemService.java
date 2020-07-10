@@ -39,4 +39,14 @@ public interface ItemService {
      */
     void deleteItems(Long[] ids);
 
+    /**
+     * 更新 status 状态
+     * SQL :    UPDATE tb_item
+     *          SET status = #{status}, updated = #{updated}
+     *          WHERE id IN (id1, id2, id3......)
+     * @param ids 要更改的 id
+     * @param status 状态
+     */
+    void updateItemStatus(Long[] ids, Integer status);
+
 }

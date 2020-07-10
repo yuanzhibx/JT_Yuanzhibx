@@ -4,6 +4,7 @@ import com.jt.pojo.Item;
 import com.jt.vo.EasyUITable;
 import com.jt.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jt.service.ItemService;
@@ -66,6 +67,20 @@ public class ItemController {
     @RequestMapping("/delete")
     public SysResult deleteItems(Long[] ids) {
         itemService.deleteItems(ids);
+        return SysResult.success();
+    }
+
+    /**
+     * 更新 status 状态
+     *
+     * @param ids 要更改的 id
+     * @param status 状态
+     * @return SysResult 对象
+     */
+    @RequestMapping("/updateStatus/{status}")
+    public SysResult updateItemStatus(Long[] ids, @PathVariable Integer status) {
+        //实现商品状态修改
+        itemService.updateItemStatus(ids, status);
         return SysResult.success();
     }
 

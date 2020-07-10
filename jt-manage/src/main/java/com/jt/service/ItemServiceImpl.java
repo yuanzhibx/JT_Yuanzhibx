@@ -1,6 +1,7 @@
 package com.jt.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.jt.vo.EasyUITable;
 import com.jt.pojo.Item;
@@ -80,6 +81,26 @@ public class ItemServiceImpl implements ItemService {
         // 将数组转换为集合
         List<Long> list = Arrays.asList(ids);
         itemMapper.deleteBatchIds(list);
+    }
+
+    /**
+     * 更新 status 状态
+     * SQL :    UPDATE tb_item
+     *          SET status = #{status}, updated = #{updated}
+     *          WHERE id IN (id1, id2, id3......)
+     * @param ids 要更改的 id
+     * @param status 状态
+     */
+    @Override
+    public void updateItemStatus(Long[] ids, Integer status) {
+        //1. 定义修改数据
+        Item item = new Item();
+        item.setStatus(status).setUpdated(new Date());
+        //2. 定义修改条件
+        UpdateWrapper<Item> updateWrapper = new UpdateWrapper<>();
+        List<Long> idList = Arrays.asList(ids);
+        updateWrapper.in("id", idList);
+        itemMapper.update(item, updateWrapper);
     }
 
     /**
