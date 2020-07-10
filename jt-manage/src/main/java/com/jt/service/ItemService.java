@@ -52,4 +52,12 @@ public interface ItemService {
      */
     void updateItemStatus(Long[] ids, Integer status);
 
+    /**
+     * 根据 itemId 查询商品详情信息并回显
+     *
+     * @param itemId
+     * @return
+     */
+    ItemDesc findItemDescById(Long itemId);
+
 }

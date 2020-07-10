@@ -119,6 +119,17 @@ public class ItemServiceImpl implements ItemService {
     }
 
     /**
+     * 根据 itemId 查询商品详情信息并回显
+     *
+     * @param itemId
+     * @return
+     */
+    @Override
+    public ItemDesc findItemDescById(Long itemId) {
+        return itemDescMapper.selectById(itemId);
+    }
+
+    /**
      * 展现商品列表数据, 以 EasyUI 表格数据呈现
      * 分页 SQL : SELECT  FROM tb_item LIMIT 0, 20   (0-19, 共 20 条记录)
      * @param page 当前页数

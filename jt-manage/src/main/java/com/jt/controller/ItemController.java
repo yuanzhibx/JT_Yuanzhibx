@@ -75,7 +75,7 @@ public class ItemController {
     /**
      * 更新 status 状态
      *
-     * @param ids 要更改的 id
+     * @param ids    要更改的 id
      * @param status 状态
      * @return SysResult 对象
      */
@@ -84,6 +84,19 @@ public class ItemController {
         //实现商品状态修改
         itemService.updateItemStatus(ids, status);
         return SysResult.success();
+    }
+
+    /**
+     * 根据 itemId 查询商品详情信息并回显
+     * url: http://localhost:8091/item/query/item/desc/1474391969
+     *
+     * @param itemId 商品 id
+     * @return SysResult 对象
+     */
+    @RequestMapping("/query/item/desc/{itemId}")
+    public SysResult findItemDescById(@PathVariable Long itemId) {
+        ItemDesc itemDesc = itemService.findItemDescById(itemId);
+        return SysResult.success(itemDesc);
     }
 
 }
