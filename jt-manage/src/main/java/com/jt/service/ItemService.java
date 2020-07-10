@@ -11,6 +11,7 @@ public interface ItemService {
 
     /**
      * 展现商品列表数据, 以 EasyUI 表格数据呈现
+     *
      * @param page 当前页数
      * @param rows 当前页数据总数
      * @return EasyUITable VO 对象
@@ -19,13 +20,23 @@ public interface ItemService {
 
     /**
      * 商品新增操作
+     *
      * @param item
      */
     void saveItem(Item item);
 
     /**
      * 商品更新操作
+     *
      * @param item
      */
     void updateItem(Item item);
+
+    /**
+     * 商品删除操作
+     *
+     * @param ids 要删除的 id (数组类型)
+     */
+    void deleteItems(Long[] ids);
+
 }
