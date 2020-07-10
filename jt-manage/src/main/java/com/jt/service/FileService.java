@@ -9,6 +9,12 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface FileService {
 
+    /**
+     * 实现文件的上传操作
+     *
+     * @param uploadFile 文件
+     * @return ImageVO 对象
+     */
     ImageVO uploadFile(MultipartFile uploadFile);
 
 }

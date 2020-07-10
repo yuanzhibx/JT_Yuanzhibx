@@ -19,17 +19,13 @@ public class FileServiceImpl implements FileService {
     private String localDir = "/Users/yanbingxu/Desktop/image";
 
     /**
-     * 校验上传的文件为图片?
-     *      通过后缀进行校验 .png .jpg .gif
-     * 保证检索的速度更快
-     *      分目录存储
-     *          .hash
-     *          时间
-     * 防止文件重名
-     *      重定义文件名称 uuid
+     * 实现文件的上传操作
+     * 1. 通过校验上传的文件是否为 .png .jpg .gif 结尾校验上传的文件是否为图片
+     * 2. 分目录存储保证检索的速度更快 (.hash | 时间)
+     * 3. 通过 uuid 重定义文件名称防止文件重名
      *
-     * @param uploadFile
-     * @return
+     * @param uploadFile 文件
+     * @return ImageVO 对象
      */
     @Override
     public ImageVO uploadFile(MultipartFile uploadFile) {

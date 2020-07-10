@@ -21,11 +21,17 @@ public class FileController {
     private FileService fileService;
 
     /**
-     * http://localhost:8091/file.jsp
-     * 参数 File=FileImage
-     * 字符串
+     * url地址: http://localhost:8091/file
+     * 参数说明：MultipartFile 接口， 主要负责实现文件接收
+     * 常识:
+     *      1.必须指定文件上传的路径信息   /Users/yanbingxu/Desktop/images/文件名称.jpg
+     *      2.将字节信息利用outPutStream进行输出操作
+     * 说明:文件上传默认大小1M=1024*1024
+     * 具体参见CommonsFileUploadSupport类
      *
-     * MultipartFile 接口: 负责实现文件接收
+     * @param fileImage
+     * @return 字符串
+     * @throws IOException
      */
     @RequestMapping("/file")
     public String file(MultipartFile fileImage) throws IOException {
