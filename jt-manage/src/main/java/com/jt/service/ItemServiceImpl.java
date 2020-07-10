@@ -3,9 +3,10 @@ package com.jt.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.jt.mapper.ItemDescMapper;
+import com.jt.pojo.ItemDesc;
 import com.jt.vo.EasyUITable;
 import com.jt.pojo.Item;
-import com.jt.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemMapper itemMapper;
+
+    @Autowired
+    private ItemDescMapper itemDescMapper;
 
     /**
      * 利用 MP 方式呈现商品列表数据
@@ -50,14 +54,24 @@ public class ItemServiceImpl implements ItemService {
 
     /**
      * 商品新增操作
+     * 实现关联新增操作
      *
      * @param item
+     * @param itemDesc
      */
     @Transactional
     @Override
-    public void saveItem(Item item) {
+    public void saveItem(Item item, ItemDesc itemDesc) {
+        //1. 商品入库
         item.setStatus(1).setCreated(new Date()).setUpdated(item.getCreated());
         itemMapper.insert(item);
+        /*
+            由于主键自增, 所以程序入库后才会有主键信息
+            MP提供业务支持实现数据自动回显功能
+         */
+        //2. 商品详情入库 item / itemDesc 中 id 一致
+        itemDesc.setItemId(item.getId()).setCreated(item.getCreated()).setUpdated(item.getCreated());
+        itemDescMapper.insert(itemDesc);
     }
 
     /**
@@ -86,9 +100,10 @@ public class ItemServiceImpl implements ItemService {
     /**
      * 更新 status 状态
      * SQL :    UPDATE tb_item
-     *          SET status = #{status}, updated = #{updated}
-     *          WHERE id IN (id1, id2, id3......)
-     * @param ids 要更改的 id
+     * SET status = #{status}, updated = #{updated}
+     * WHERE id IN (id1, id2, id3......)
+     *
+     * @param ids    要更改的 id
      * @param status 状态
      */
     @Override

@@ -1,6 +1,7 @@
 package com.jt.service;
 
 import com.jt.pojo.Item;
+import com.jt.pojo.ItemDesc;
 import com.jt.vo.EasyUITable;
 
 /**
@@ -20,10 +21,12 @@ public interface ItemService {
 
     /**
      * 商品新增操作
+     * 实现关联新增操作
      *
      * @param item
+     * @param itemDesc
      */
-    void saveItem(Item item);
+    void saveItem(Item item, ItemDesc itemDesc);
 
     /**
      * 商品更新操作

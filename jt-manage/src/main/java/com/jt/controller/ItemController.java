@@ -1,6 +1,7 @@
 package com.jt.controller;
 
 import com.jt.pojo.Item;
+import com.jt.pojo.ItemDesc;
 import com.jt.vo.EasyUITable;
 import com.jt.vo.SysResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,9 @@ public class ItemController {
      * @return SysResult 对象
      */
     @RequestMapping("/save")
-    public SysResult saveItem(Item item) {
-        itemService.saveItem(item);
+    public SysResult saveItem(Item item, ItemDesc itemDesc) {
+        //两张表同时入库
+        itemService.saveItem(item, itemDesc);
         return SysResult.success();
     }
 
