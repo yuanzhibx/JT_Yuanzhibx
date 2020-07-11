@@ -26,6 +26,9 @@ public class FileServiceImpl implements FileService {
     @Value("${image.localDir}")
     private String localDir;
 
+    @Value("${image.imageUrl}")
+    private String imageUrl;
+
     @Autowired
     private ImageTypeUtil imageTypeUtil;
 
@@ -43,7 +46,6 @@ public class FileServiceImpl implements FileService {
         //1. 校验上传的信息是否为图片
         // 通过静态代码块实现 | 利用spring方式进行优化
         Set<String> typeSet = imageTypeUtil.getTypeSet();
-
         // 动态获取用户上传的图片类型, 校验图片类型是否有效
         String fileName = uploadFile.getOriginalFilename();
         //将所有字符转化为小写
@@ -71,7 +73,7 @@ public class FileServiceImpl implements FileService {
         File imageFile = new File(dirPath + realFileName);
         try {
             uploadFile.transferTo(imageFile);
-            String url = "https://img10.360buyimg.com/n1/jfs/t1/119487/18/3178/206106/5eae8b24Ebfa7aaf8/bb1977b12647f1fd.jpg";
+            String url = "https://yuanzhibx.github.io/" + dateDir + realFileName;
             return ImageVO.success(url);
         } catch (IOException e) {
             e.printStackTrace();
