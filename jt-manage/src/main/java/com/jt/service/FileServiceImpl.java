@@ -1,6 +1,10 @@
 package com.jt.service;
 
+import com.jt.util.ImageTypeUtil;
 import com.jt.vo.ImageVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,13 +14,20 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
+ * 通过指定配置文件, 进行属性的注入
+ *
  * @author Yuanzhibx
  * @Date 2020-07-10
  */
 @Service
+@PropertySource("classpath:/properties/image.properties")
 public class FileServiceImpl implements FileService {
 
-    private String localDir = "/Users/yanbingxu/Desktop/image";
+    @Value("${image.localDir}")
+    private String localDir;
+
+    @Autowired
+    private ImageTypeUtil imageTypeUtil;
 
     /**
      * 实现文件的上传操作
@@ -30,18 +41,14 @@ public class FileServiceImpl implements FileService {
     @Override
     public ImageVO uploadFile(MultipartFile uploadFile) {
         //1. 校验上传的信息是否为图片
-        //1.1. 初始化图片类型集合
-        Set<String> typeSet = new HashSet<>();
-        typeSet.add(".jpg");
-        typeSet.add(".png");
-        typeSet.add(".gif");
+        // 通过静态代码块实现 | 利用spring方式进行优化
+        Set<String> typeSet = imageTypeUtil.getTypeSet();
 
-        //1.2. 校验图片类型是否有效
+        // 动态获取用户上传的图片类型, 校验图片类型是否有效
         String fileName = uploadFile.getOriginalFilename();
         //将所有字符转化为小写
         fileName = fileName.toLowerCase();
         int index = fileName.lastIndexOf(".");
-
         String fileType = fileName.substring(index);
         if (!typeSet.contains(fileType)) {
             return ImageVO.fail();
@@ -49,7 +56,6 @@ public class FileServiceImpl implements FileService {
 
         //2. 准备文件上传的目录结构
         String dateDir = new SimpleDateFormat("/yyyy/MM/dd/").format(new Date());
-
         String dirPath = localDir + dateDir;
         File dirFile = new File(dirPath);
         if (!dirFile.exists()) {
@@ -62,7 +68,7 @@ public class FileServiceImpl implements FileService {
         String realFileName = uuid + fileType;
 
         //4. 执行文件上传代码
-        File imageFile = new File(dirPath+realFileName);
+        File imageFile = new File(dirPath + realFileName);
         try {
             uploadFile.transferTo(imageFile);
             String url = "https://img10.360buyimg.com/n1/jfs/t1/119487/18/3178/206106/5eae8b24Ebfa7aaf8/bb1977b12647f1fd.jpg";
