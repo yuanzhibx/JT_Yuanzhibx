@@ -70,10 +70,11 @@ public class FileServiceImpl implements FileService {
         String realFileName = uuid + fileType;
 
         //4. 执行文件上传代码
-        File imageFile = new File(dirPath + realFileName);
+        File imageFile = new File(dirPath+realFileName);
         try {
             uploadFile.transferTo(imageFile);
-            String url = "https://yuanzhibx.github.io/" + dateDir + realFileName;
+            String url = imageUrl + dateDir + realFileName;
+            System.out.println(url);
             return ImageVO.success(url);
         } catch (IOException e) {
             e.printStackTrace();
