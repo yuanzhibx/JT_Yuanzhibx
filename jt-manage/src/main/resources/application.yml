@@ -7,6 +7,7 @@ spring:
     # 引入druid数据源
     # type: com.alibaba.druid.pool.DruidDataSource
     # driver-class-name: com.mysql.cj.jdbc.Driver
+    # url: jdbc:mysql://172.18.55.141:8066/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
     url: jdbc:mysql://127.0.0.1:3306/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
     username: root
     password: root
