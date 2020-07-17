@@ -2,6 +2,7 @@ package com.jt.test;
 
 import org.junit.jupiter.api.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 import redis.clients.jedis.params.SetParams;
 
 /**
@@ -98,6 +99,53 @@ public class TestRedis {
         jedis.set("addr", "demo02", params);
         System.out.println(jedis.get("addr"));
         System.out.println("剩余存活时间:  " + jedis.ttl("addr"));
+    }
+
+    /**
+     * 存储一类数据时, 使用 Hash
+     */
+    @Test
+    public void testHash() {
+        Jedis jedis = new Jedis("172.18.55.141", 6379);
+        jedis.flushAll();
+        jedis.hset("user", "name", "Yuanzhibx");
+        jedis.hset("user", "id", "10010");
+        System.out.println(jedis.hgetAll("user"));
+        System.out.println(jedis.hlen("user"));
+        System.out.println(jedis.hvals("user"));
+    }
+
+    /**
+     * List
+     */
+    @Test
+    public void testList() {
+        Jedis jedis = new Jedis("172.18.55.141", 6379);
+        jedis.flushAll();
+        jedis.lpush("list","1", "2", "3", "4", "5");
+        System.out.println(jedis.rpop("list"));
+    }
+
+    /**
+     * 控制事务
+     */
+    @Test
+    public void testTx() {
+        Jedis jedis = new Jedis("172.18.55.141", 6379);
+        jedis.flushAll();
+        Transaction transaction = jedis.multi();
+        try {
+            transaction.set("name", "Yuanzhibx");
+            transaction.set("age", "13");
+            transaction.set("addr", "SD");
+            // 事务提交
+            transaction.exec();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //事务回滚
+            transaction.discard();
+        }
+        System.out.println(jedis.keys("*"));
     }
 
 }
