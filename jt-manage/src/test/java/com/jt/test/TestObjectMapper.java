@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jt.pojo.ItemDesc;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Yuanzhibx
@@ -33,6 +35,37 @@ public class TestObjectMapper {
         //2. 将 json 转化为对象, 调用的是对象的 set 方法
         ItemDesc itemDesc2 = MAPPER.readValue(json, ItemDesc.class);
         System.out.println(itemDesc2.getItemDesc());
+    }
+
+    public List<ItemDesc> initList() {
+        ItemDesc itemDesc = new ItemDesc();
+        itemDesc.setItemId(1L).setItemDesc("DEMO").setCreated(new Date()).setUpdated(itemDesc.getCreated());
+
+        ItemDesc itemDesc2 = new ItemDesc();
+        itemDesc2.setItemId(1L).setItemDesc("DEMO").setCreated(new Date()).setUpdated(itemDesc.getCreated());
+
+        List<ItemDesc> list = new ArrayList<>();
+        list.add(itemDesc);
+        list.add(itemDesc2);
+        return list;
+    }
+
+    /**
+     * List / Json 转化
+     *
+     * @throws JsonProcessingException
+     * @SuppressWarnings("unchecked") 压制警告
+     */
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testList2Json() throws JsonProcessingException {
+        List<ItemDesc> list = initList();
+        // list 转 Json
+        String json = MAPPER.writeValueAsString(list);
+        System.out.println(json);
+        // Json 转 list
+        List<ItemDesc> itemDescList = MAPPER.readValue(json, list.getClass());
+        System.out.println(itemDescList);
     }
 
 }

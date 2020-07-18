@@ -35,6 +35,7 @@ public class ItemCatController {
     }
 
     /**
+     * Redis 缓存分类信息
      * 根据商品父级 id 查询商品分类信息, 返回 VO 对象
      * url: /item/cat/list
      *
@@ -44,7 +45,8 @@ public class ItemCatController {
     @RequestMapping("/list")
     public List<EasyUITree> findItemCatByParentId(@RequestParam(value = "id", defaultValue = "0") Long parentId) {
 //        Long parentId = id == null ? 0L : id;
-        return itemCatService.findItemCatByParentId(parentId);
+//        return itemCatService.findItemCatByParentId(parentId);
+        return itemCatService.findItemCatByCache(parentId);
     }
 
 }

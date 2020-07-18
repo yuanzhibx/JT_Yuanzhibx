@@ -27,4 +27,12 @@ public interface ItemCatService {
      */
     List<EasyUITree> findItemCatByParentId(Long parentId);
 
+    /**
+     * Redis
+     * 根据商品 id 实现缓存查询商品分类信息
+     * @param parentId 商品分类 id
+     * @return 商品分类信息
+     */
+    List<EasyUITree> findItemCatByCache(Long parentId);
+
 }
