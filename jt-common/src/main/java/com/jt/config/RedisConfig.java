@@ -26,7 +26,7 @@ public class RedisConfig {
      */
     @Bean
     public Jedis jedis() {
-        return new Jedis();
+        return new Jedis(host, port);
     }
 
 }

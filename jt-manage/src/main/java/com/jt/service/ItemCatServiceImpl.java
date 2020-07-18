@@ -1,6 +1,7 @@
 package com.jt.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.jt.anno.CacheFind;
 import com.jt.mapper.ItemCatMapper;
 import com.jt.pojo.ItemCat;
 import com.jt.util.ObjectMapperUtil;
@@ -46,6 +47,7 @@ public class ItemCatServiceImpl implements ItemCatService {
      * @return List<EasyUITree> 子级对象集合
      */
     @Override
+    @CacheFind(key = "ITEM_CAT_LIST")
     public List<EasyUITree> findItemCatByParentId(Long parentId) {
         //1. 根据 parentId 查询数据库信息(根据父级查询子级)
         QueryWrapper<ItemCat> queryWrapper = new QueryWrapper();
