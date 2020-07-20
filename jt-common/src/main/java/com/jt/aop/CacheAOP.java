@@ -2,13 +2,17 @@ package com.jt.aop;
 
 import com.jt.anno.CacheFind;
 import com.jt.util.ObjectMapperUtil;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.ShardedJedis;
 
 /**
  * @author Yuanzhibx
@@ -18,8 +22,13 @@ import redis.clients.jedis.Jedis;
 @Aspect
 public class CacheAOP {
 
+    /*
+        单台 redis 注入: private Jedis jedis
+        多台 redis 注入: private ShardedJedis jedis;
+     */
+
     @Autowired(required = false)
-    private Jedis jedis;
+    private ShardedJedis jedis;
 
     /**
      * 拦截被 @CacheFind 标识的方法, 之后利用 aop 进行缓存的控制

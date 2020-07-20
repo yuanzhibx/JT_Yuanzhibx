@@ -5,6 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisShardInfo;
+import redis.clients.jedis.ShardedJedis;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Yuanzhibx
@@ -14,19 +19,22 @@ import redis.clients.jedis.Jedis;
 @PropertySource("classpath:/properties/redis.properties")
 public class RedisConfig {
 
-    @Value("${redis.host}")
-    private String host;
-    @Value("${redis.port}")
-    private Integer port;
+    @Value("${redis.nodes}")
+    private String redisNodes;
 
-    /**
-     * 将返回值交给 Spring 容器进行管理, 如果以后想要使用该对象, 则可以直接注入
-     *
-     * @return
-     */
     @Bean
-    public Jedis jedis() {
-        return new Jedis(host, port);
+    public ShardedJedis shardedJedis() {
+        String[] nodes = redisNodes.split(",");
+        // 动态获取 Redis 节点信息
+        List<JedisShardInfo> list = new ArrayList<>();
+        // 循环遍历 nodes
+        for (String node : nodes) {
+            //将 nodes 通过 : 拆分为 host 和 port
+            String host = node.split(":")[0];
+            int port = Integer.parseInt(node.split(":")[1]);
+            list.add(new JedisShardInfo(host, port));
+        }
+        return new ShardedJedis(list);
     }
 
 }
