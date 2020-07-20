@@ -16,6 +16,8 @@
 ```
 ---
 ## 项目技术
+<div style="text-align: center">
+
 ![](https://img.shields.io/badge/SpringBoot-2.3.1.RELEASE-green)
 ![](https://img.shields.io/badge/MyBatis-3.5.4-red)
 
@@ -25,12 +27,15 @@
 ![](https://img.shields.io/badge/Redis-3.3.2-orange)
 ![](https://img.shields.io/badge/Nginx-1.17.3-inactive)
 
+</div>
+
 ### 开发环境
 > - OS: macOS 10.15.3
 > - 语言: JDK 1.8
 > - IDE: IDEA 2020.1
 > - 依赖管理: Maven 3.6.0
 > - 数据库: MySQL 5.7.24
+
 ---
 ## 文档
 > - [JT_Yuanzhibx01 【Java】项目后台实现](http://blog.yanbingxu.com/2020/07/08/JT-Yuanzhibx01/)
