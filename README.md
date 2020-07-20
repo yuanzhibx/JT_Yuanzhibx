@@ -42,9 +42,9 @@
 
 > - [JT_Yuanzhibx02 【Nginx】Nginx 负载均衡](http://blog.yanbingxu.com/2020/07/15/JT-Yuanzhibx02/)
 
-> - [JT-Yuanzhibx03 【Linux】项目部署到 Linux](http://blog.yanbingxu.com/2020/07/17/JT-Yuanzhibx03/)
+> - [JT_Yuanzhibx03 【Linux】项目部署到 Linux](http://blog.yanbingxu.com/2020/07/17/JT-Yuanzhibx03/)
 
-> - [JT-Yuanzhibx04 【DATABASE】数据库高可用](http://blog.yanbingxu.com/2020/07/18/JT-Yuanzhibx04/)
+> - [JT_Yuanzhibx04 【DATABASE】数据库高可用](http://blog.yanbingxu.com/2020/07/18/JT-Yuanzhibx04/)
 
 ---
 ## 捐赠
