@@ -1,7 +1,7 @@
 # JT-Yuanzhibx
-> - About: [源志bx](https://yuanzhibx.github.io/)
+> - About: [源志bx](http://blog.yanbingxu.com/)
 > - 该仓库为个人学习所用代码仓库, 如有错误欢迎指正
-> - 文档在个人博客中编写, 欢迎访问 [yuanzhibx.github.io](https://yuanzhibx.github.io/)
+> - 文档在个人博客中编写, 欢迎访问 [blog.yanbingxu.com](http://blog.yanbingxu.com/)
 
 ---
 ## 项目结构
@@ -16,12 +16,12 @@
 ```
 ---
 ## 项目技术
-### 后端
-> - 基础框架: SpringBoot 2.3.1.RELEASE
-> - 持久层框架: MyBatis 3.5.4
+![](https://img.shields.io/badge/SpringBoot-2.3.1.RELEASE-green)
+![](https://img.shields.io/badge/MyBatis-3.5.4-red)
 
-### 前端
-> - 基础框架: EasyUI
+![](https://img.shields.io/badge/MyBatisPlus-3.3.2-blue)
+![](https://img.shields.io/badge/Redis-3.3.2-yellow)
+![](https://img.shields.io/badge/Lombok-1.18.12-yellowGre)
 
 ### 开发环境
 > - 语言: JDK 1.8
