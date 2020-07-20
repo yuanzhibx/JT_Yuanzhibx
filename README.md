@@ -20,10 +20,13 @@
 ![](https://img.shields.io/badge/MyBatis-3.5.4-red)
 
 ![](https://img.shields.io/badge/MyBatisPlus-3.3.2-blue)
-![](https://img.shields.io/badge/Redis-3.3.2-yellow)
-![](https://img.shields.io/badge/Lombok-1.18.12-yellowGre)
+![](https://img.shields.io/badge/Lombok-1.18.12-brightgreen)
+
+![](https://img.shields.io/badge/Redis-3.3.2-orange)
+![](https://img.shields.io/badge/Nginx-1.17.3-inactive)
 
 ### 开发环境
+> - OS: macOS 10.15.3
 > - 语言: JDK 1.8
 > - IDE: IDEA 2020.1
 > - 依赖管理: Maven 3.6.0
@@ -37,7 +40,7 @@
 
 ---
 ## 联系
-- `网站 1(博客)：` [yuanzhibx.github.io](https://yuanzhibx.github.io/)
+- `网站 1(博客)：` [blog.yanbingxu.com](https://blog.yanbingxu.com/)
 - `网站 2(项目)：` [yanbingxu.com](http://yanbingxu.com:8080/) (建设中)
 - `CSDN：` [me.csdn.net/qq_44153697](https://me.csdn.net/qq_44153697)
 - `Email：` <ybx0729@163.com>
