@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
 /**
- * 拦截被 @CacheFind 标识的方法, 之后利用 aop 进行缓存的控制
- *
  * @author Yuanzhibx
  * @Date 2020-07-18
  */
