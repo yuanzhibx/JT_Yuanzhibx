@@ -14,7 +14,7 @@
 │  ├─jt-common
 │  └─jt-manage
 ```
-> ![](./img/ProjectStructure.png)
+> ![ProjectStructure](./img/ProjectStructure.png)
 ---
 ## 项目技术
 <div style="text-align: center">
