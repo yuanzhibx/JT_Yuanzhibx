@@ -12,6 +12,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.ShardedJedis;
 
 /**
@@ -22,13 +23,13 @@ import redis.clients.jedis.ShardedJedis;
 @Aspect
 public class CacheAOP {
 
-    /*
+    /**
         单台 redis 注入: private Jedis jedis
         多台 redis 注入: private ShardedJedis jedis;
+        集群 redis 注入: private JedisCluster jedis;
      */
-
     @Autowired(required = false)
-    private ShardedJedis jedis;
+    private JedisCluster jedis;
 
     /**
      * 拦截被 @CacheFind 标识的方法, 之后利用 aop 进行缓存的控制
