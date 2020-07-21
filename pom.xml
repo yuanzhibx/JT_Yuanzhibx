@@ -143,5 +143,6 @@
     <modules>
         <module>jt-common</module>
         <module>jt-manage</module>
+        <module>jt-web</module>
     </modules>
 </project>
