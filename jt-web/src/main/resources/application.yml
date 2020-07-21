@@ -1,0 +1,8 @@
+server:
+  port: 8092    
+spring:     #定义springmvc视图解析器
+  mvc:    view:      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+
+  

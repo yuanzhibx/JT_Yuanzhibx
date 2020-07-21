@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试JSON跨域问题</title>	
+	<script type="text/javascript">
+		/*JS是解释执行的语言  */
+		/*定义回调函数  */
+		function hello(data){
+			alert(data.name);
+		}
+	</script>
+	<!--该json一直保存到浏览器中等待调用,但是没有函数名称无法调用  -->
+	<script type="text/javascript" src="http://manage.jt.com/test.json"></script>
+	<script type="text/javascript" src="http://manage.jt.com/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>JS跨域问题</h1>
+	
+</script>
+</body>
+
+
+</html>

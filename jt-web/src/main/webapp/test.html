@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试JSON跨域问题</title>
+<script type="text/javascript" src="http://manage.jt.com/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/*$(){}结构必然是jQuery函数类库导入后才能正确执行*/
+	$(function(){
+		alert("我执行了AJAX");
+		//利用jQuery发起AJAX请求
+		$.get("http://manage.jt.com/test.json",function(data){
+			alert(data.name);
+		})
+	})
+</script>
+</head>
+<body>
+	<h1>JSON跨域请求测试</h1>
+</body>
+</html>
