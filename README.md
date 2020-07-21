@@ -6,15 +6,18 @@
 ---
 ## 项目结构
 - [jt-common](./jt-common): 工具 API
-- [jt-manage](./jt-manage): 业务系统
+- [jt-manage](./jt-manage): 后端业务系统
+- [jt-web](./jt-web): 前端 Web
 
 ```
 ├─jt
 │  ├─db
 │  ├─jt-common
-│  └─jt-manage
+│  ├─jt-manage
+│  └─jt-web
 ```
 > ![ProjectStructure](./img/ProjectStructure.png)
+
 ---
 ## 项目技术
 <div style="text-align: center">
@@ -46,6 +49,8 @@
 > - [JT_Yuanzhibx03 【Linux】项目部署到 Linux](http://blog.yanbingxu.com/2020/07/17/JT-Yuanzhibx03/)
 
 > - [JT_Yuanzhibx04 【DATABASE】数据库高可用](http://blog.yanbingxu.com/2020/07/18/JT-Yuanzhibx04/)
+
+> - 正在编写...
 
 ---
 ## 捐赠
