@@ -8,13 +8,14 @@
 - [jt-common](./jt-common): 工具 API
 - [jt-manage](./jt-manage): 后端业务系统
 - [jt-web](./jt-web): 前端 Web
+- [jt-sso](./jt-sso): 
 
 ```
 ├─jt
-│  ├─db
 │  ├─jt-common
 │  ├─jt-manage
-│  └─jt-web
+│  ├─jt-web
+│  └─jt-sso
 ```
 > ![ProjectStructure](./img/ProjectStructure.png)
 
