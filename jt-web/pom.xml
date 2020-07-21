@@ -19,7 +19,6 @@
         </dependency>
     </dependencies>
 
-
     <!--3.添加插件 -->
     <!--负责项目打包 更新 maven操作相关的配置 必须添加 -->
     <build>
@@ -30,6 +29,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
