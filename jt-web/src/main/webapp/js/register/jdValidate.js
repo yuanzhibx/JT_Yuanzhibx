@@ -614,6 +614,9 @@ function checkPin(option) {
                             validateSettings.error.run(option, "该用户名已占用！");
                             namestate = false;
                         }
+                    } else {
+                        validateSettings.error.run(option, "服务器正忙,请重试!!!");
+                        namestate = false;
                     }
                 }
             });
