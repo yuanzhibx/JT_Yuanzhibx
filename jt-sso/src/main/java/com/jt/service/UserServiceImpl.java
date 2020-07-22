@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     public boolean checkUser(String param, Integer type) {
         String column = paramMap.get(type);
         // 通过获取数据中的记录总数, 判断是否存在数据
-        QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(column, param);
         int count = userMapper.selectCount(queryWrapper);
         return count > 0 ? true : false;
