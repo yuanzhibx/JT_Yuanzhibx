@@ -8,7 +8,7 @@
 - [jt-common](./jt-common): 工具 API
 - [jt-manage](./jt-manage): 后端业务系统
 - [jt-web](./jt-web): 前端 Web
-- [jt-sso](./jt-sso): 
+- [jt-sso](./jt-sso): 用户操作
 
 ```
 ├─jt
@@ -26,11 +26,12 @@
 ![](https://img.shields.io/badge/SpringBoot-2.3.1.RELEASE-green)
 ![](https://img.shields.io/badge/MyBatis-3.5.4-red)
 
-![](https://img.shields.io/badge/MyBatisPlus-3.3.2-blue)
 ![](https://img.shields.io/badge/Lombok-1.18.12-brightgreen)
+![](https://img.shields.io/badge/MyBatisPlus-3.3.2-blue)
 
 ![](https://img.shields.io/badge/Redis-3.3.2-orange)
 ![](https://img.shields.io/badge/Nginx-1.17.3-inactive)
+![](https://img.shields.io/badge/Dobbo-2.6.2-9cf)
 
 </div>
 
