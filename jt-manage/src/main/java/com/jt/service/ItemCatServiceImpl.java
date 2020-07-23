@@ -35,6 +35,7 @@ public class ItemCatServiceImpl implements ItemCatService {
      * @return 商品分类信息
      */
     @Override
+    @CacheFind(key = "ITEM_CAT_ID")
     public ItemCat findItemCatById(Long itemCatId) {
         return itemCatMapper.selectById(itemCatId);
     }

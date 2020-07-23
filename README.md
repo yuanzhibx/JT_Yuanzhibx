@@ -1,5 +1,6 @@
 # JT-Yuanzhibx
 > - About: [源志bx](http://blog.yanbingxu.com/)
+> `JT` 为分布式集群聚合项目
 > - 该仓库为个人学习所用代码仓库, 如有错误欢迎指正
 > - 文档在个人博客中编写, 欢迎访问 [blog.yanbingxu.com](http://blog.yanbingxu.com/)
 
@@ -51,6 +52,10 @@
 > - [JT_Yuanzhibx03 【Linux】项目部署到 Linux](http://blog.yanbingxu.com/2020/07/17/JT-Yuanzhibx03/)
 
 > - [JT_Yuanzhibx04 【DATABASE】数据库高可用](http://blog.yanbingxu.com/2020/07/18/JT-Yuanzhibx04/)
+
+> - [JT_Yuanzhibx05 【Redis 1】Redis 基本使用](http://blog.yanbingxu.com/2020/07/21/JT-Yuanzhibx05/)
+
+> - [JT_Yuanzhibx06 【Redis 2】Redis 高级使用](http://blog.yanbingxu.com/2020/07/23/JT-Yuanzhibx06/)
 
 > - 正在编写...
 
