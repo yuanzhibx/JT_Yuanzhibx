@@ -1,5 +1,7 @@
 package com.jt.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.jt.service.DubboUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/user")
-public class IndexController {
+public class UserController {
+
+    @Reference(check = false)
+    private DubboUserService userService;
 
     @RequestMapping("/register")
     public String register() {
