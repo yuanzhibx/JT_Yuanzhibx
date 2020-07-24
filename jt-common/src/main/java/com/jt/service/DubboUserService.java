@@ -15,4 +15,11 @@ public interface DubboUserService {
      */
     void saveUser(User user);
 
+    /**
+     * 用户登录
+     *
+     * @param user 用户信息
+     * @return ticket 用户密钥
+     */
+    String doLogin(User user);
 }
