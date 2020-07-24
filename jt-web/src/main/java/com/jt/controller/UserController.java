@@ -67,7 +67,7 @@ public class UserController {
             return SysResult.fail();
         }
         // 使用 Cookie 实现数据存储
-        Cookie cookie = new Cookie("JT_TICKET", "Yuanzhi");
+        Cookie cookie = new Cookie("JT_TICKET", ticket);
         cookie.setDomain("jt.com");
         cookie.setPath("/");
         cookie.setMaxAge(7*24*60*60);

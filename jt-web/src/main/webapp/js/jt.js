@@ -12,7 +12,9 @@ var TT = JT = {
 			success : function(data){
 				if(data.status == 200){
 					//把json串转化为js对象
+					alert("JSON 串" + data.data)
 					var _data = JSON.parse(data.data);
+					alert("JS 对象" + data)
 					var html =_data.username+"，欢迎来到京淘！<a href=\"http://www.jt.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}

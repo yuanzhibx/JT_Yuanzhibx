@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.JedisCluster;
 
 /**
  * @author Yuanzhibx
@@ -19,6 +20,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JedisCluster jedisCluster;
+
     /**
      * @param param 需要校验的数据
      * @param type  校验的类型
@@ -29,6 +33,19 @@ public class UserController {
         boolean flag = userService.checkUser(param, type);
         SysResult sysResult = SysResult.success(flag);
         return new JSONPObject(callback, sysResult);
+    }
+
+    @RequestMapping("/query/{ticket}")
+    public JSONPObject findUserByTicket(String callback, @PathVariable String ticket) {
+        if (jedisCluster.exists(ticket)) {
+            String data = jedisCluster.get(ticket);
+            System.out.println(data);
+            SysResult sysResult = SysResult.success(data);
+            return new JSONPObject(callback, sysResult);
+        } else {
+            SysResult sysResult = SysResult.fail();
+            return new JSONPObject(callback, sysResult);
+        }
     }
 
 }
