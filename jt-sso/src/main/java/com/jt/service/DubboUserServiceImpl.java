@@ -25,7 +25,7 @@ public class DubboUserServiceImpl implements DubboUserService {
      * @param user 用户信息
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public void saveUser(User user) {
         // 将数据进行加密处理
         String password = user.getPassword();
