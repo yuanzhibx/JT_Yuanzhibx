@@ -1,15 +1,15 @@
 # JT-Yuanzhibx
 > - About: [源志bx](http://blog.yanbingxu.com/)
-> `JT` 为分布式集群聚合项目
+> - `JT` 为分布式集群聚合项目
 > - 该仓库为个人学习所用代码仓库, 如有错误欢迎指正
 > - 文档在个人博客中编写, 欢迎访问 [blog.yanbingxu.com](http://blog.yanbingxu.com/)
 
 ---
 ## 项目结构
 - [jt-common](./jt-common): 工具 API
-- [jt-manage](./jt-manage): 后端业务系统
-- [jt-web](./jt-web): 前端 Web
-- [jt-sso](./jt-sso): 用户操作
+- [jt-manage](./jt-manage): 后端业务系统 (提供者)
+- [jt-web](./jt-web): 前端 Web (消费者)
+- [jt-sso](./jt-sso): 用户操作 (提供者)
 
 ```
 ├─jt
