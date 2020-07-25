@@ -26,3 +26,15 @@ mybatis-plus:
 logging:
   level:
     com.jt.mapper: debug
+
+# Dubbo 配置
+dubbo:
+  scan:
+    basePackages: com.jt    # 指定dubbo的包路径
+  application:              # 应用名称
+    name: provider-item     # 一个接口对应一个服务名称
+  registry:
+    address: zookeeper://172.18.55.141:2181?backup=172.18.55.141:2182,172.18.55.141:2183
+  protocol:  # 指定协议
+    name: dubbo  # 使用dubbo协议(tcp-ip)  web-controller直接调用sso-Service
+    port: 20881  # 每一个服务都有自己特定的端口 不能重复.
