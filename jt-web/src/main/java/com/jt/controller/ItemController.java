@@ -19,13 +19,15 @@ public class ItemController {
 
     @Reference(check = false)
     private DubboItemService itemService;
+
     /**
-     * 根据商品 id 执行查询的商品
+     * 根据商品 id 查询商品/商品详情信息, 并显示在页面
+     * url: http://www.jt.com/items/1474391978.html  跳转到商品页面
      * ${item.title}            商品信息
      * ${itemDesc.ItemDesc}     商品详情信息
      *
-     * @param itemId
-     * @return
+     * @param itemId 商品 id
+     * @return 商品页面
      */
     @RequestMapping("/{itemId}")
     public String findItemById(@PathVariable Long itemId, Model model) {

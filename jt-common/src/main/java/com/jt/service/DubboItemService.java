@@ -9,8 +9,20 @@ import com.jt.pojo.ItemDesc;
  */
 public interface DubboItemService {
 
+    /**
+     * 根据商品 id 查询商品信息
+     *
+     * @param itemId 商品 id
+     * @return 商品信息
+     */
     Item findItemById(Long itemId);
 
+    /**
+     * 根据商品 id 查询商品详情信息
+     *
+     * @param itemId 商品 id
+     * @return 商品详情信息
+     */
     ItemDesc findItemDescById(Long itemId);
 
 }

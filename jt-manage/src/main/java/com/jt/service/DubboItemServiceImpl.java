@@ -20,11 +20,23 @@ public class DubboItemServiceImpl implements DubboItemService {
     @Autowired
     private ItemDescMapper itemDescMapper;
 
+    /**
+     * 根据商品 id 查询商品信息
+     *
+     * @param itemId 商品 id
+     * @return 商品信息
+     */
     @Override
     public Item findItemById(Long itemId) {
         return itemMapper.selectById(itemId);
     }
 
+    /**
+     * 根据商品 id 查询商品详情信息
+     *
+     * @param itemId 商品 id
+     * @return 商品详情信息
+     */
     @Override
     public ItemDesc findItemDescById(Long itemId) {
         return itemDescMapper.selectById(itemId);
