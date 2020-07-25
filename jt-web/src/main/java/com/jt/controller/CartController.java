@@ -37,4 +37,16 @@ public class CartController {
         return "cart";
     }
 
+    /**
+     * 更新购物车
+     * url: http://www.jt.com/cart/update/num/562379/13
+     *
+     */
+    @RequestMapping("/update/num/{itemId}/{num}")
+    public void updateCart(Cart cart) {
+        Long userId = 7L;
+        cart.setUserId(userId);
+        cartService.updateCartNum(cart);
+    }
+
 }

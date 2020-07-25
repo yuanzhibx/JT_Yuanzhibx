@@ -12,4 +12,6 @@ public interface DubboCartService {
 
     List<Cart> findCartListByUserId(Long userId);
 
+    void updateCartNum(Cart cart);
+
 }
