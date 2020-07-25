@@ -24,9 +24,11 @@ public class UserController {
     private JedisCluster jedisCluster;
 
     /**
+     * 检验用户信息是否存在
+     *
      * @param param 需要校验的数据
      * @param type  校验的类型
-     * @return
+     * @return JSONP 对象
      */
     @RequestMapping("/check/{param}/{type}")
     public JSONPObject checkUser(@PathVariable String param, @PathVariable Integer type, String callback) {
@@ -35,6 +37,13 @@ public class UserController {
         return new JSONPObject(callback, sysResult);
     }
 
+    /**
+     * 利用 JSONP 获取用户信息
+     *
+     * @param callback
+     * @param ticket
+     * @return
+     */
     @RequestMapping("/query/{ticket}")
     public JSONPObject findUserByTicket(String callback, @PathVariable String ticket) {
         if (jedisCluster.exists(ticket)) {

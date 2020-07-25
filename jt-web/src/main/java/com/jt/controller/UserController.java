@@ -25,11 +25,17 @@ public class UserController {
     @Reference(check = false)
     private DubboUserService userService;
 
+    /**
+     * 注册页面跳转
+     */
     @RequestMapping("/register")
     public String register() {
         return "register";
     }
 
+    /**
+     * 登录页面跳转
+     */
     @RequestMapping("/login")
     public String login() {
         return "login";
@@ -37,7 +43,7 @@ public class UserController {
 
     /**
      * 用户注册
-     * http://www.jt.com/
+     * http://www.jt.com/user/doRegister
      *
      * @param user 用户信息
      * @return SysResult 对象
@@ -56,6 +62,7 @@ public class UserController {
      * Cookie:  Cookie 默认条件下,只能在自己的网址下进行展现
      *      Domain: 指定域名可以实现 Cookie 的共享
      *      Path: 指定路径下, 才能获取 Cookie
+     *
      * @param user 用户信息
      * @return SysResult 对象
      */
