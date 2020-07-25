@@ -1,4 +1,4 @@
-package jt;
+package com.jt;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
