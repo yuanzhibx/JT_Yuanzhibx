@@ -10,13 +10,15 @@
 - [jt-manage](./jt-manage): 后端业务系统 (提供者)
 - [jt-web](./jt-web): 前端 Web (消费者)
 - [jt-sso](./jt-sso): 用户操作 (提供者)
+- [jt-cart](./jt-cart): 购物车 (提供者)
 
 ```
 ├─jt
 │  ├─jt-common
 │  ├─jt-manage
 │  ├─jt-web
-│  └─jt-sso
+│  ├─jt-sso
+│  └─jt-cart
 ```
 > ![ProjectStructure](./img/ProjectStructure.png)
 

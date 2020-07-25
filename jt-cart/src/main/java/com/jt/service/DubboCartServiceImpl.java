@@ -48,4 +48,29 @@ public class DubboCartServiceImpl implements DubboCartService {
         cartMapper.update(cartTemp, updateWrapper);
     }
 
+    /**
+     * 新增购物车数据
+     * 第一次      加购入库
+     * 第 N 次    更新数据库
+     *
+     * @param cart 购物车数据
+     */
+    @Override
+    public void saveCart(Cart cart) {
+        // 查询数据库中是否有该记录
+        QueryWrapper<Cart> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", cart.getUserId());
+        queryWrapper.eq("item_id", cart.getItemId());
+        Cart cartDB = cartMapper.selectOne(queryWrapper);
+        if (cartDB == null) {
+            //加购
+            cart.setCreated(new Date()).setUpdated(cart.getCreated());
+            cartMapper.insert(cart);
+        } else {
+            //更新商品数量
+            int num = cart.getNum() + cartDB.getNum();
+            cartMapper.updateCarNum(cartDB.getId(), num, new Date());
+        }
+    }
+
 }
