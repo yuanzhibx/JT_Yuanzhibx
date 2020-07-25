@@ -38,9 +38,10 @@ public class CartController {
     }
 
     /**
-     * 更新购物车
+     * 更新购物车数量
      * url: http://www.jt.com/cart/update/num/562379/13
      *
+     * @param cart
      */
     @RequestMapping("/update/num/{itemId}/{num}")
     public void updateCart(Cart cart) {
