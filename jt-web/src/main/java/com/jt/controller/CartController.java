@@ -2,12 +2,14 @@ package com.jt.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.jt.pojo.Cart;
+import com.jt.pojo.User;
 import com.jt.service.DubboCartService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -29,9 +31,10 @@ public class CartController {
      * @return
      */
     @RequestMapping("/show")
-    public String show(Model model) {
-        // 获取 userId
-        Long userId = 7L;
+    public String show(Model model, HttpServletRequest request) {
+        // 动态获取 userId
+        User user = (User) request.getAttribute("JT_USER");
+        Long userId = user.getId();
         // 根据 userId 查询购物车数据
         List<Cart> cartList = cartService.findCartListByUserId(userId);
         model.addAttribute("cartList", cartList);
@@ -45,8 +48,10 @@ public class CartController {
      * @param cart
      */
     @RequestMapping("/update/num/{itemId}/{num}")
-    public void updateCart(Cart cart) {
-        Long userId = 7L;
+    public void updateCart(Cart cart, HttpServletRequest request) {
+        // 动态获取 userId
+        User user = (User) request.getAttribute("JT_USER");
+        Long userId = user.getId();
         cart.setUserId(userId);
         cartService.updateCartNum(cart);
     }
@@ -59,8 +64,10 @@ public class CartController {
      * @return 重定向到购物车页面
      */
     @RequestMapping("/add/{itemId}")
-    public String saveCart(Cart cart) {
-        Long userId = 7L;
+    public String saveCart(Cart cart, HttpServletRequest request) {
+        // 动态获取 userId
+        User user = (User) request.getAttribute("JT_USER");
+        Long userId = user.getId();
         cart.setUserId(userId);
         cartService.saveCart(cart);
         return "redirect:/cart/show.html";
@@ -75,8 +82,10 @@ public class CartController {
      * @return
      */
     @RequestMapping("/delete/{itemId}")
-    public String deleteCart(@PathVariable Long itemId) {
-        Long userId = 7L;
+    public String deleteCart(@PathVariable Long itemId, HttpServletRequest request) {
+        // 动态获取 userId
+        User user = (User) request.getAttribute("JT_USER");
+        Long userId = user.getId();
         Cart cart = new Cart();
         cart.setUserId(userId);
         cart.setItemId(itemId);
