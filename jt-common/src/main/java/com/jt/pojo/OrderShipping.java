@@ -7,15 +7,17 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
+ * 订单物流
+ *
  * @author Yuanzhibx
  * @Date 2020-07-27
  */
 @TableName("tb_order_shipping")
 @Data
-@Accessors(chain=true)
-public class OrderShipping extends BasePojo{
-	
-	@TableId
+@Accessors(chain = true)
+public class OrderShipping extends BasePojo {
+
+    @TableId
     private String orderId;
 
     private String receiverName;
@@ -33,5 +35,5 @@ public class OrderShipping extends BasePojo{
     private String receiverAddress;
 
     private String receiverZip;
-    
+
 }

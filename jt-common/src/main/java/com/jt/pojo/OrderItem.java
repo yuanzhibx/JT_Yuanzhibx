@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
+ * 订单商品
+ *
  * @author Yuanzhibx
  * @Date 2020-07-27
  */
@@ -18,7 +20,7 @@ public class OrderItem extends BasePojo {
     @TableId
     private String itemId;
 
-//    @TableId
+    //    @TableId
     private String orderId;
 
     private Integer num;
