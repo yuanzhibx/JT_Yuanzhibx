@@ -18,7 +18,7 @@ public class OrderItem extends BasePojo {
     @TableId
     private String itemId;
 
-    @TableId
+//    @TableId
     private String orderId;
 
     private Integer num;
