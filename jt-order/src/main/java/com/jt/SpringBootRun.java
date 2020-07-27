@@ -4,6 +4,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Yuanzhibx
+ * @Date 2020-07-27
+ */
 @SpringBootApplication
 @MapperScan("com.jt.mapper") //为mapper接口创建代理对象
 public class SpringBootRun {

@@ -13,10 +13,11 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.jt.mapper.OrderItemMapper;
 import com.jt.mapper.OrderMapper;
 import com.jt.mapper.OrderShippingMapper;
-import com.jt.pojo.Order;
-import com.jt.pojo.OrderItem;
-import com.jt.pojo.OrderShipping;
 
+/**
+ * @author Yuanzhibx
+ * @Date 2020-07-27
+ */
 @Service
 public class OrderServiceImpl implements DubboOrderService {
 	
