@@ -1,0 +1,41 @@
+server:
+  port: 8095
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    # 如果需要项目发布,则数据库地址必须配置远程数据库
+    url: jdbc:mysql://127.0.0.1:3306/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+
+  # 配置视图解析器
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+# mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: com.jt.pojo
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 日志记录 输出数据库的日志信息.
+logging:
+  config: classpath:logging-config.xml
+  level:
+    com.jt.mapper: debug
+
+dubbo:
+  scan:
+    basePackages: com.jt    # 指定dubbo的包路径
+  application:
+    name: provider-order    # 指定服务名称(必须指定)
+  registry:
+    address: zookeeper://172.18.55.141:2181?backup=172.18.55.141:2182,172.18.55.141:2183
+  protocol:   # 指定协议
+    name: dubbo   # 使用dubbo协议(tcp-ip)  web-controller直接调用sso-Service
+    port: 20883   # 每个服务都应该有自己特定的端口

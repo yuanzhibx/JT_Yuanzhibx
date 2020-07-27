@@ -9,8 +9,9 @@
 - [jt-common](./jt-common): 工具 API
 - [jt-manage](./jt-manage): 后端业务系统 (提供者)
 - [jt-web](./jt-web): 前端 Web (消费者)
-- [jt-sso](./jt-sso): 用户操作 (提供者)
+- [jt-sso](./jt-sso): 单点登录 (提供者)
 - [jt-cart](./jt-cart): 购物车 (提供者)
+- [jt-order](./jt-order): 购物车 (提供者)
 
 ```
 ├─jt
@@ -18,7 +19,8 @@
 │  ├─jt-manage
 │  ├─jt-web
 │  ├─jt-sso
-│  └─jt-cart
+│  ├─jt-cart
+│  └─jt-order
 ```
 > ![ProjectStructure](./img/ProjectStructure.png)
 
