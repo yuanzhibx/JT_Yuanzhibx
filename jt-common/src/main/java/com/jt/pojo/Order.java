@@ -38,6 +38,7 @@ public class Order extends BasePojo {
 
     /**
      * 订单 id
+     * String 订单号 =  登录用户 id + 当前时间戳
      */
     @TableId
     private String orderId;
