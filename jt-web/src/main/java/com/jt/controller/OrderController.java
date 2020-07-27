@@ -66,4 +66,18 @@ public class OrderController {
         return SysResult.success(orderId);
     }
 
+    /**
+     * 查询订单信息
+     * url: http://www.jt.com/order/success.html?id=91595834239928
+     *
+     * @param id 订单 id
+     * @return 页面
+     */
+    @RequestMapping("success")
+    public String findOrderById(String id, Model model) {
+        Order order = orderService.findOrderById(id);
+        model.addAttribute("order", order);
+        return "success";
+    }
+
 }

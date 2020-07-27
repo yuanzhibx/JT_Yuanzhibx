@@ -64,4 +64,20 @@ public class OrderServiceImpl implements DubboOrderService {
         return orderId;
     }
 
+    /**
+     * 查询订单信息
+     *
+     * @param orderId 订单 id
+     * @return 订单信息
+     */
+    @Override
+    public Order findOrderById(String orderId) {
+        Order order = orderMapper.selectById(orderId);
+        OrderShipping orderShipping = orderShippingMapper.selectById(orderId);
+        QueryWrapper<OrderItem> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("order_id", orderId);
+        List<OrderItem> orderItems = orderItemMapper.selectList(queryWrapper);
+        return order;
+    }
+
 }

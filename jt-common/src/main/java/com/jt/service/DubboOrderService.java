@@ -16,4 +16,12 @@ public interface DubboOrderService {
      */
     String saveOrder(Order order);
 
+    /**
+     * 查询订单信息
+     *
+     * @param orderId 订单 id
+     * @return 订单信息
+     */
+    Order findOrderById(String orderId);
+
 }
