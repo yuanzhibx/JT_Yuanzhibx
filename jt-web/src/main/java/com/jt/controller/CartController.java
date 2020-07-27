@@ -5,6 +5,7 @@ import com.jt.pojo.Cart;
 import com.jt.service.DubboCartService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -62,6 +63,24 @@ public class CartController {
         Long userId = 7L;
         cart.setUserId(userId);
         cartService.saveCart(cart);
+        return "redirect:/cart/show.html";
+    }
+
+    /**
+     * 删除购物车数据
+     * url地址: http://www.jt.com/cart/delete/1474391978.html
+     * ${cart.itemId} 商品 id
+     *
+     * @param itemId
+     * @return
+     */
+    @RequestMapping("/delete/{itemId}")
+    public String deleteCart(@PathVariable Long itemId) {
+        Long userId = 7L;
+        Cart cart = new Cart();
+        cart.setUserId(userId);
+        cart.setItemId(itemId);
+        cartService.deleteCart(cart);
         return "redirect:/cart/show.html";
     }
 

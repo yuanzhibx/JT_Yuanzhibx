@@ -73,4 +73,16 @@ public class DubboCartServiceImpl implements DubboCartService {
         }
     }
 
+    /**
+     * 删除购物车数据
+     *
+     * @param cart 购物车数据
+     */
+    @Override
+    public void deleteCart(Cart cart) {
+        // 对象中不为 null 的数据充当 where 条件
+        QueryWrapper<Cart> queryWrapper =  new QueryWrapper<>(cart);
+       cartMapper.delete(queryWrapper);
+    }
+
 }

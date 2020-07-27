@@ -32,4 +32,10 @@ public interface DubboCartService {
      */
     void saveCart(Cart cart);
 
+    /**
+     * 删除购物车数据
+     *
+     * @param cart 购物车数据
+     */
+    void deleteCart(Cart cart);
 }
